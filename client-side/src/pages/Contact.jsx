@@ -5,11 +5,13 @@ import { useAuth } from "../store/auth";
 
 
 const Contact = () => {
-  const [conatct, setContact] = useState({
+
+  const defaultContact = {
     username: "",
     email: "",
     message: "",
-  });
+  }
+  const [conatct, setContact] = useState(defaultContact);
 
   const [userData, setUserData] = useState(true);
 
@@ -48,11 +50,7 @@ const Contact = () => {
       if (res.ok) {
         console.log("Message Sent : ");
         console.log(res);
-        setContact({
-          username: "",
-          email: "",
-          message: "",
-        });
+        setContact(defaultContact);
       } else {
         console.log("Message Failed");
       }
