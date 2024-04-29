@@ -9,6 +9,7 @@ import Error from "./pages/Error";
 import Navbar from "./component/Navbar";
 import Logout from "./pages/Logout";
 import Service from "./pages/Service";
+import Footer from "./component/Footer";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           {/* error 404 page */}
           <Route path="*" element={<Error />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );
