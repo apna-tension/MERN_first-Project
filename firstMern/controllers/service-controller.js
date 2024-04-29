@@ -8,7 +8,7 @@ const services = async (req, res) => {
       res.status(404).json("No services found");
       return;
     }
-    console.log("response : ", response);
+    // console.log("response : ", response);
 
     res.status(200).json({response});
   } catch (err) {
