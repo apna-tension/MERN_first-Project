@@ -8,6 +8,7 @@ import Register from "./pages/Register";
 import Error from "./pages/Error";
 import Navbar from "./component/Navbar";
 import Logout from "./pages/Logout";
+import Service from "./pages/Service";
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/service" element={<Service />} />
+          <Route path="/login" element={<Login />} /> 
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/logout" element={<Logout />} />
