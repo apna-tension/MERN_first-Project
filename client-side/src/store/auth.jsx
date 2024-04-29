@@ -6,6 +6,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState("");
+  const [service, setService] = useState("");
 
   // store token in local storage
   const storeTokenInLS = (serverToken) => {
@@ -44,15 +45,39 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+
+
+  // fatching services from the server 
+  const serviceData = async () => {
+    try {
+     const response = await fetch("http://localhost:5000/service", {
+        method: "GET",
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        // console.log(" Service data :>> ", data);
+        setService(data);
+      }
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
   // jwt authentication: to get the currently logged in user data
   useEffect(() => {
     if (token) {
       userAuthentication();
     }
+    serviceData();
   }, [token]);
 
+  // service provider
+
+
+
   return (
-    <AuthContext.Provider value={{ storeTokenInLS, LogoutUser, isLoggedin, user }}>
+    <AuthContext.Provider value={{ storeTokenInLS, LogoutUser, isLoggedin, user, service }}>
       {children}
     </AuthContext.Provider>
   );
