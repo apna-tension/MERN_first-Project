@@ -26,6 +26,9 @@ const Navbar = () => {
               <NavLink to="/dashboard">Dashboard</NavLink>
             </li>
             <li>
+              <NavLink to="/service">Services</NavLink>
+            </li>
+            <li>
               <NavLink to="/contact">Contact</NavLink>
             </li>
             {isLoggedin ? (
