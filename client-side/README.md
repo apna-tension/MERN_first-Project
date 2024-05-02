@@ -19,3 +19,4 @@ Currently, two official plugins are available:
 - Vite
 - React-DOM
 - React-Router-DOM
+- React-Toastify :- (for toast notification generation or custom toast notification generation like alert);
