@@ -63,7 +63,7 @@ const Register = () => {
 
         setUser(defaultRegister);
         toast.success("Registration Successful");
-        navigate("/login");
+        navigate("/");
       } else {
         console.log("Registration Failed : ", res_data);
         // console.log("Registration Failed : ", res_data.message);
