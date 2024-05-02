@@ -11,14 +11,17 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../style/register.css"; // Import the CSS file
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
+
+const defaultRegister = {
+  username: "",
+  email: "",
+  phone: "",
+  password: "",
+};
 
 const Register = () => {
-  const [user, setUser] = useState({
-    username: "",
-    email: "",
-    phone: "",
-    password: "",
-  });
+  const [user, setUser] = useState(defaultRegister);
 
   const navigate = useNavigate();
   const { storeTokenInLS } = useAuth();
@@ -47,24 +50,24 @@ const Register = () => {
         body: JSON.stringify(user),
       });
 
+      const res_data = await res.json();
+      console.log("response = ", res_data);
+
       if (res.ok) {
         
         console.log("Registration Successful : ");
         
         // store the registration token in local storage
-        const res_data = await res.json();
+        
         storeTokenInLS(res_data.token);
 
-        console.log("response = ", res_data);
-        setUser({
-          username: "",
-          email: "",
-          phone: "",
-          password: "",
-        });
+        setUser(defaultRegister);
+        toast.success("Registration Successful");
         navigate("/login");
       } else {
-        console.log("Registration Failed");
+        console.log("Registration Failed : ", res_data);
+        // console.log("Registration Failed : ", res_data.message);
+        toast.error(res_data.extraDetails ? res_data.extraDetails.message : res_data.message);
       }
     } catch (err) {
       console.log(err);

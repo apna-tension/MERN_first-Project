@@ -5,6 +5,7 @@ import { useState } from "react";
 import "../style/login.css"; // Import the CSS file
 import {useNavigate} from "react-router-dom";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
 
 
 const Login = () => {
@@ -39,8 +40,8 @@ const Login = () => {
         body: JSON.stringify(user),
       });
 
+      const res_data = await res.json();
       if (res.ok) {
-        const res_data = await res.json();
         storeTokenInLS(res_data.token);
         console.log("tokens are : " , res_data.token);
 
@@ -50,9 +51,12 @@ const Login = () => {
           email: "",
           password: "",
         });
+        toast.success("Login Successful");
         navigate("/");
       } else {
-        console.log("Login Failed");
+        // alert(res_data.message);
+        toast.error(res_data.message);
+        console.log("Login Failed : ", res_data);
       }
     } catch (err) {
       console.log(err);
