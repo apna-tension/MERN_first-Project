@@ -10,6 +10,8 @@ import Navbar from "./component/Navbar";
 import Logout from "./pages/Logout";
 import Service from "./pages/Service";
 import Footer from "./component/Footer";
+import User from "./pages/Admin/User";
+import ContactAdmin from "./pages/Admin/Contact";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/logout" element={<Logout />} />
+          <Route path="/admin/user" element={<User />} />
+          <Route path="/admin/contact" element={<ContactAdmin />} />
           {/* error 404 page */}
           <Route path="*" element={<Error />} />
         </Routes>
