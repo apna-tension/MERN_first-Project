@@ -18,6 +18,8 @@ const Contact = () => {
   const {user} = useAuth();
 
   if (userData && user) {
+    console.log("user data from contact: " + user.username);
+    console.log("user data from contact: isAdmin " + user.isAdmin);
     setContact({
       username: user.username,
       email: user.email,
