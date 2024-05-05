@@ -7,10 +7,9 @@ import img1 from "../image/img1.png";
 const Home = () => {
   return (
     <div className="home-container">
-      <h1 className="heading">Welcome to Our Beautiful Website</h1>
+      <h1 className="heading">Welcome to Our Fucking Website (Say FUCK to the UI)</h1>
       <p className="paragraph">
-        Discover amazing content and more on our platform. Explore the wonders
-        of the internet with us.
+        Don't judge me by the UI, because I'm focusing on backend part😅.
       </p>
 
       <div className="image-container">
