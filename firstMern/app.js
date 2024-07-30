@@ -19,7 +19,9 @@ const crossOption = {
     credentials: true,
     optionsSuccessStatus: 204,
 }
-
+app.get("/", (req, res) => {
+    res.json("Hello");
+});
 app.use(cors(crossOption));
 
 app.use(express.json());
