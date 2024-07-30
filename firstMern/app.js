@@ -13,7 +13,8 @@ const cors = require("cors");
 
 // cors:- middleware function that handles requests from different origins and allows them to access the resources on the server
 const crossOption = {
-    origin: "http://localhost:5173",
+    // origin: "http://localhost:5173",
+    origin: ["https://deploy-mern-lwhq.vercel.app"],
     methods: "GET, GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials: true,
     optionsSuccessStatus: 204,
