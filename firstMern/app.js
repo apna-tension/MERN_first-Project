@@ -18,7 +18,7 @@ const crossOption = {
     origin: ["https://deploy-mern-lwhq.vercel.app"],
     methods: "GET, GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials: true,
-    optionsSuccessStatus: 204,
+    // optionsSuccessStatus: 204,
 }
 app.get("/", (req, res) => {
     res.json("Hello");
