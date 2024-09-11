@@ -5,6 +5,7 @@ const authRouter = require("./router/auth-router");
 const contactRouter = require("./router/contact-router");
 const serviceRouter = require("./router/service-router");
 const adminRouter = require("./router/admin-router");
+const port = process.env.PORT || 5000;
 
 const connectDB = require("./utils/db");
 const { errorMiddleware } = require("./middlewares/error-middlewares");
@@ -23,6 +24,10 @@ app.use(cors(crossOption));
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+    res.send("Hello World");
+});
+
 app.use("/auth", authRouter);
 
 app.use("/contact", contactRouter);
@@ -34,5 +39,5 @@ app.use("/admin", adminRouter);
 app.use(errorMiddleware);
 
 connectDB().then(() => {
-    app.listen(5000, () => console.log("Server running on port 5000"));
+    app.listen(port, () => console.log("Server running on port 5000"));
 });
