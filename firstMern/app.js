@@ -15,19 +15,32 @@ const cors = require("cors");
 // cors:- middleware function that handles requests from different origins and allows them to access the resources on the server
 const crossOption = {
     origin: "http://localhost:5173",
+    // origin: ["https://deploy-mern-lwhq.vercel.app"],
     methods: "GET, GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials: true,
-    optionsSuccessStatus: 204,
+    // optionsSuccessStatus: 204,
 }
+// const corsOptions = {
+//     origin: ["https://deploy-mern-lwhq.vercel.app"],
+//     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
+//     credentials: true,
+// };
+
 
 app.use(cors(crossOption));
 
 app.use(express.json());
+<<<<<<< HEAD
 
 app.get("/", (req, res) => {
     res.send("Hello World");
 });
 
+=======
+app.get("/", (req, res) => {
+    res.json("Hello");
+});
+>>>>>>> a847fe37bb3bd0c57c6cf92423281b444d09f817
 app.use("/auth", authRouter);
 
 app.use("/contact", contactRouter);
